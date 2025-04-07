@@ -20,7 +20,7 @@ int wrapIndex(const int& index, const int& max) {
 }
 
 bool commandSelect(int ch, int &index, std::string& path, const std::vector<std::string>& itens){
-    if (ch == 0 || ch == 224) { // tecla especial
+    if (ch == 0 || ch == 224) { 
         int specialKey = getch();
         switch (specialKey) {
             case 72: index--; break;

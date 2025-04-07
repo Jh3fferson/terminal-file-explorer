@@ -55,19 +55,19 @@ std::vector<std::string> listDirectory(const std::string& path, int& index) {
         for (int i = start; i < end; ++i) {
             bool isSelected = (i == index);
 
-            if (isSelected) std::cout << "\033[30;47m"; // Inversão de cor
+            if (isSelected) std::cout << "\033[30;47m"; 
 
             std::cout << (isSelected ? "> " : "  ")
                       << " : " << (std::filesystem::is_directory(path + "/" + itens[i]) ? "[DIR]  " : "[FILE]  ")
                       << itens[i];
 
-            if (isSelected) std::cout << "\033[0m"; // Reset de cor
+            if (isSelected) std::cout << "\033[0m"; 
 
             std::cout << '\n';
         }
 
     } catch (const std::filesystem::filesystem_error& e) {
-        std::cout << "Erro ao acessar diretório: " << e.what() << '\n';
+        std::cout << "Error accessing directory: " << e.what() << '\n';
     }
 
     return itens;
@@ -77,7 +77,7 @@ std::vector<std::string> listDirectory(const std::string& path, int& index) {
 void open(std::string& path, const std::string& item, int& index){
     std::filesystem::path p(path);
     if (!std::filesystem::exists(p)) {
-        std::cout << "Arquivo ou pasta não existe.\n";
+        std::cout << "This file or folder don't exist.\n";
         return;
     }
     p /= item;
@@ -116,6 +116,6 @@ void deleteSomething(const std::string& path, const std::string& item){
     if(std::filesystem::remove_all(path + "/" + item)){
         std::cout << "deleted with sucess";
     }else{
-        std::cout << "This file or folder don't exist";
+        std::cout << "This file or folder don't exist.";
     }
 }
