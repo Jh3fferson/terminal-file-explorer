@@ -90,13 +90,6 @@ void open(std::string& path, const std::string& item, int& index){
     }
 }
 
-void openFile(std::string path, const std::string& item){
-    std::filesystem::path p(path);
-    p /= item;
-    path = p.string();
-    
-}
-
 void closeFolder(std::string& path){
     std::filesystem::path p(path);
     p = p.parent_path();
